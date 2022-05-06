@@ -1,0 +1,17 @@
+{% extends 'Dance_Info/base.html' %}
+
+{% block title %}
+{{ title}}
+{% endblock %}
+
+{% block content %}
+    <h1>Coach</h1>
+	{% for el in coaches %}
+		<div class="alert alert-warning mt-2">
+			<p><strong>{{ el.coach_surname }} {{ el.coach_name }}</strong></p>
+			<p>{{ el.telephone }}</p>
+			<p>{{ el.mail }}</p>
+		</div>
+	{% endfor %}
+<input type="submit" value=" Добавить " >
+{% endblock %}

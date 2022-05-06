@@ -1,0 +1,30 @@
+{% extends 'Dance_Info/base.html' %}
+
+{% block title %}
+{{ title}}
+{% endblock %}
+
+{% block content %}
+	<h1>Клуб</h1>
+<div class="alert alert-warning mt-2">
+<table class="uael-table-row">
+	<tr>
+		<th scope="col"> Клуб</th>
+		<th scope="col">Фамилия, имя</th>
+		<th scope="col">Телефон</th>
+		<th scope="col">Почта</th>
+		<th scope="col">Город</th>
+	<tr>
+	{% for el in clubs %}
+    <tr>
+		<td>{{ el.club_name }}</td>
+		<td>{{ el.coach.coach_surname }} {{ el.coach.coach_name }}</td>
+		<td>{{ el.coach.telephone }}</td>
+		<td>{{ el.coach.mail }}</td>
+		<td>{{ el.city }}</td>
+    </tr>
+	{% endfor %}
+</table>
+</div>
+<input type="submit" value=" Добавить " >
+{% endblock %}

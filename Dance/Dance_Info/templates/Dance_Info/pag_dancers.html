@@ -1,0 +1,62 @@
+{% extends 'Dance_Info/base.html' %}
+
+{% block title %}
+{{ title}}
+{% endblock %}
+
+{% block content %}
+    <h1>Танцоры</h1>
+
+<div class="alert alert-warning mt-2">
+<table class="uael-table-row">
+	<tr>
+		<th scope="col">Фамилия, имя</th>
+		<th scope="col">Клуб</th>
+		<th scope="col">Руководитель</th>
+		<th scope="col">Телефон<br>руководителя</th>
+		<th scope="col">Почта<br>руководителя</th>
+		<th scope="col">Город</th>
+		<th scope="col">Тренер</th>
+		<th scope="col">Дата<br>рождения</th>
+	<tr>
+
+	{% if contacts %}
+	{% for el in contacts %}
+	<tr>
+		<td> {{ el.dancer_surname }} {{ el.dancer_name }}</td>
+		<td> {{ el.club.club_name }}</td>
+		<td>	{{ el.club.coach.coach_surname }}
+				{{ el.club.coach.coach_surname }}</td>
+		<td>	{{ el.club.coach.telephone }}</td>
+		<td>	{{ el.club.coach.mail }}</td>
+		<td>	{{ el.club.city }}</td>
+			<td> {{ el.coach.coach_surname }}
+				{{ el.coach.coach_name }}</td>
+			<td> {{ el.birth_date }} </td>
+	</tr>
+		{% endfor %}
+	{% else %}
+		<p>В базе нет записей</p>
+	{% endif %}
+	</table>
+</div>
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page=Предыдущая {{ contacts.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ contacts.number }} из {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">Следующая</a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}
