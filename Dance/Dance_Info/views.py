@@ -114,34 +114,6 @@ class DancerApiUpdate(generics.UpdateAPIView):
     serializer_class = ClubSerializer
 
 
-# class ClubApiView(APIView):
-#     def get(self, request):
-#         w = Club.objects.all()
-#         return Response({'post': ClubSerializer(w, many=True).data})
-#
-#     def post (self, request):
-#         serializer = ClubSerializer(data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#
-#         return Response({'post': serializer.data})
-#
-#     def put(self, request, *args, **kwargs):
-#         pk = kwargs("pk", None)
-#         if not pk:
-#             return Response({"error": "Method PUT not allowed"})
-#
-#         try:
-#             instance = Club.objects.get(pk=pk)
-#         except:
-#             return Response({"error": "Method PUT not allowed"})
-#
-#         serializer = ClubSerializer(data=request.data, instance=instance)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response({'post': serializer.data})
-
-
 def start(request):
     return render(request, 'Dance_Info/index.html')
 
