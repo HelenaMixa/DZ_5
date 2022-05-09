@@ -47,20 +47,6 @@ def club(request):
     return render(request, 'Dance_Info/club.html', {'clubs': clubs})
 
 
-# def disc(request):
-#     discs = Disc.objects.order_by('diametr')
-#     page_number = request.GET.get('page')
-#     all_disc = Paginator(discs, 3)
-#     try:
-#         discs_all = all_disc.page_number(page_number)
-#     except PageNotAnInteger:
-#         discs_all = all_disc.page_number(1)
-#     except EmptyPage:
-#         discs_all = all_disc.page_number(all_disc.num_pages)
-#
-#     return render(request, 'wheels/disc.html', {'discs_all ': discs_all})
-
-
 class ClubApiListPagination(PageNumberPagination):
     page_size = 2
     page_size_query_param = 'page_size'
@@ -176,18 +162,18 @@ def coach(request):
                   {'title': 'База данных тренеров', 'coaches': show_coach})
 
 
-def dance(request):
-    dances = Dancer.objects.order_by('dancer_surname')
-    page_number = request.GET.get('page')
-    all_dance = Paginator(dances, 3)
-    try:
-        dances_all = all_dance.page_number(page_number)
-    except PageNotAnInteger:
-        dances_all = all_dance.page_number(1)
-    except EmptyPage:
-        dances_all = all_dance.page_number(all_dance.num_pages)
+# def dance(request):
+#     dances = Dancer.objects.order_by('dancer_surname')
+#     page_number = request.GET.get('page')
+#     all_dance = Paginator(dances, 3)
+#     try:
+#         dances_all = all_dance.page_number(page_number)
+#     except PageNotAnInteger:
+#         dances_all = all_dance.page_number(1)
+#     except EmptyPage:
+#         dances_all = all_dance.page_number(all_dance.num_pages)
 
-    return render(request, 'Dance_Info/dancers.html', {'dances_all ': dances_all})
+#     return render(request, 'Dance_Info/dancers.html', {'dances_all ': dances_all})
 
 
 def listing(request):
