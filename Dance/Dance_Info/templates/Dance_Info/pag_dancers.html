@@ -41,21 +41,23 @@
 	</table>
 </div>
 
-
-<div class="pagination">
+  <div class="pagination justify-content-center">
+<ul >
     <span class="step-links">
-        {% if contacts.has_previous %}
-            <a href="?page=Предыдущая {{ contacts.previous_page_number }}">Предыдущая</a>
+        {% if contacts.has_previous and  contacts.number >= 2%}
+            <a href="?page={{ page_pre }}">Предыдущая</a>
         {% endif %}
 
         <span class="current">
-            Страница {{ contacts.number }} из {{ contacts.paginator.num_pages }}.
+            Страница {{ page_curr }} из {{ page_total }}.
         </span>
 
         {% if contacts.has_next %}
-            <a href="?page={{ contacts.next_page_number }}">Следующая</a>
+            <a href="?page={{ page_next }}">Следующая</a>
         {% endif %}
+
     </span>
+</ul>
 </div>
 
 
