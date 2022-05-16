@@ -33,6 +33,8 @@ def listing(request, **kwarqs):
     contact_list = Dancer.objects.order_by('dancer_surname').all()
     paginator = Paginator(contact_list, 2)
     page = request.GET.get('page')
+    if not page:
+        page = 'I'
     try:
         contacts = paginator.page(page)
     except PageNotAnInteger:
